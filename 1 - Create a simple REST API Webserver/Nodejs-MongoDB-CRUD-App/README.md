@@ -1,3 +1,10 @@
+docker build:
+docker login
+docker build -t tejasdurge55/mongo-crud-one2n-sre-bootcamp:latest .
+docker push tejasdurge55/mongo-crud-one2n-sre-bootcamp:latest
+
+
+
 # Student CRUD API
 
 ## Overview
