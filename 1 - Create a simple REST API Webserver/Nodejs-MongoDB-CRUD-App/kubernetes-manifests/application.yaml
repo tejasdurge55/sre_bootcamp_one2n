@@ -1,7 +1,9 @@
+
 apiVersion: v1
 kind: Service
 metadata:
   name: crud-nodejs
+  namespace: student-api
 spec:
   selector:
     app: crud-nodejs
@@ -14,8 +16,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: crud-nodejs
+  namespace: student-api
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: crud-nodejs
@@ -24,8 +27,11 @@ spec:
       labels:
         app: crud-nodejs
     spec:
+      nodeSelector:
+        type: application
       containers:
         - name: crud-nodejs
+          imagePullPolicy: Always
           image: tejasdurge55/mongo-crud-one2n-sre-bootcamp
           ports:
             - containerPort: 3000

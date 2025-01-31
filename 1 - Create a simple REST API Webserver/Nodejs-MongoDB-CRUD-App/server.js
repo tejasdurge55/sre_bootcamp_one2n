@@ -4,6 +4,7 @@ const studentRoutes = require("./src/routes/studentRoutes");
 const { connectDB } = require("./src/utils/db");
 const { logger } = require("./src/middlewares/logger");
 const path = require("path");
+const os = require('os');
 
 dotenv.config();
 
@@ -19,7 +20,8 @@ app.use(logger);
 app.use("/api/v1/students", studentRoutes);
 app.get("/api/v1/healthcheck", (req, res) => {
   res.set("Cache-Control", "no-store"); // Disable caching
-  res.status(200).json({ status: "OK" });
+  res.status(200).json({ status: "OK", message: 'Hello from API',
+    container: os.hostname()});
 });
 
 // Start server and connect to DB
