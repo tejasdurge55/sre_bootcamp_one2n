@@ -1,3 +1,21 @@
+docker build commands:
+```
+docker login
+docker build -t tejasdurge55/mongo-crud-one2n-sre-bootcamp:latest .
+docker push tejasdurge55/mongo-crud-one2n-sre-bootcamp:latest
+```
+
+labe nodes:
+```
+k label node controlplane type=application
+```
+
+
+untaint node command:
+```
+kubectl taint nodes controlplane group=ampa:NoSchedule-
+```
+
 # Student CRUD API
 
 ## Overview
